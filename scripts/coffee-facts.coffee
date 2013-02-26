@@ -66,4 +66,4 @@ facts = [
 
 module.exports = (robot) ->
   robot.respond /coffee fact/i, (msg) ->
-    msg.send facts.random
+    msg.send(facts[Math.floor(Math.random()*facts.length)])
