@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot coffe fact - Random coffe fact.
+#   hubot coffee fact - Random coffe fact.
 #
 # Author:
 #   Sebastian Martinez (@smartinez87)
@@ -65,5 +65,5 @@ facts = [
   ]
 
 module.exports = (robot) ->
-  robot.respond /coffe fact/i, (msg) ->
+  robot.respond /coffee fact/i, (msg) ->
     msg.send facts.random
