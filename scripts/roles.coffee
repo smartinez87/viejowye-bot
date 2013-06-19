@@ -15,7 +15,7 @@ module.exports = (robot) ->
   getAmbiguousUserText = (users) ->
     "Be more specific, I know #{users.length} people named like that: #{(user.name for user in users).join(", ")}"
 
-  robot.respond /who is @?([\w .\-]+)\?*$/i, (msg) ->
+  robot.respond /who is @?([\w\u00E0-\u00FC\u00C0-\u00DC .\-]+)\?*$/i, (msg) ->
     joiner = ', '
     name = msg.match[1].trim()
 
@@ -39,7 +39,7 @@ module.exports = (robot) ->
       else
         msg.send "#{name}? Never heard of 'em"
 
-  robot.respond /@?([\w .\-_]+) is (["'\w: \-_]+)[.!]*$/i, (msg) ->
+  robot.respond /@?([\w\u00E0-\u00FC\u00C0-\u00DC .\-_]+) is (["'\w: \-_]+)[.!]*$/i, (msg) ->
     name    = msg.match[1].trim()
     newRole = msg.match[2].trim()
 
@@ -63,7 +63,7 @@ module.exports = (robot) ->
         else
           msg.send "I don't know anything about #{name}."
 
-  robot.respond /@?([\w .\-_]+) is not (["'\w: \-_]+)[.!]*$/i, (msg) ->
+  robot.respond /@?([\w\u00E0-\u00FC\u00C0-\u00DC .\-_]+) is not (["'\w: \-_]+)[.!]*$/i, (msg) ->
     name    = msg.match[1].trim()
     newRole = msg.match[2].trim()
 
